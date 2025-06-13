@@ -1,0 +1,111 @@
+body {
+    background-color: #f8f9fa;
+}
+.content {
+    padding: 20px;
+}
+.custom-file-upload {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    width: 100%;
+    text-align: center;
+}
+.custom-file-upload:hover {
+    background-color: #e9ecef;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.file-input {
+    display: none; /* Hide the default file input */
+}
+.upload-icon {
+    font-size: 16px;
+    margin-right: 8px;
+}
+.file-name {
+    margin-left: 10px;
+    font-weight: normal;
+    color: #007bff; /* Bootstrap primary color */
+}
+.success-icon {
+    color: green;
+    margin-left: 5px;
+    display: none; /* Initially hidden */
+}
+.holiday-list {
+    margin-top: 10px;
+}
+/*------------------------------------------ADD HOLIDAY AND LOGOUT BUTTONS----------------------------------------------------------------*/
+.logo {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center vertically */
+    margin-right: 5px; /* Space between logo and heading */
+}
+
+.navbar-logo {
+    height: 60px; /* Adjust the height of the logo */
+    width: auto; /* Maintain aspect ratio */
+}
+
+.navbar-custom {
+    height: 65px; /* Adjust the height of the navbar */
+}
+/*------------------------------------------ADD HOLIDAY AND LOGOUT BUTTONS----------------------------------------------------------------*/
+.upload-form-container {
+    max-width: 1000px; /* Increase the width of the form */
+    margin: 0 auto; /* Center the form */
+    margin-top: 10px;
+    margin-left: 30px;
+}
+.icon-button {
+    margin-right: 20px; /* Add gap between buttons */
+}
+/*------------------------------------------ADD HOLIDAY AND LOGOUT BUTTONS----------------------------------------------------------------*/
+.btn-secondary {
+    border: none; /* Remove the border */
+    background-color: #23486A; /* Set the background color */
+    transition: background-color 0.3s; /* Add transition for smooth hover effect */
+}
+.btn-secondary:hover {
+    background-color: #5a6268; /* Set the hover color */
+}
+.btn-success {
+    border: none; /* Remove the border */
+    background-color: #23486A; /* Set the background color */
+    transition: background-color 0.3s; /* Add transition for smooth hover effect */
+    outline: none; /* Remove the default outline */
+}
+
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active,
+.btn-success:focus-visible {
+    background-color: #5a6268 !important; /* Maintain the hover color when clicked */
+    box-shadow: none !important; /* Remove Bootstrap's focus shadow */
+    border-color: transparent; /* Prevent border color changes */
+    outline: none !important; /* Ensure no outline appears */
+}
+.guidelines-box {
+    background-color: #f8f9fa;
+    border-left: 4px solid #23486A;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+.guidelines-box h6 {
+    color: #23486A;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.guidelines-box ul {
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+.guidelines-box li {
+    margin-bottom: 5px;
+}

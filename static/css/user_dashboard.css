@@ -1,0 +1,334 @@
+/* General Reset for Body */
+body {
+    margin: 0; /* Remove default body margin background-color: #181818;background: linear-gradient(to right, #FFFFFF, #ECE9E6)*/
+    padding: 0; /* Remove default body padding */
+
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+
+.card-container {
+    display: flex;
+    justify-content: center; /* Center the cards horizontally */
+    flex-wrap: wrap; /* Allow wrapping to the next line if necessary */
+    margin-left: 14px; /* Leave space for the sidebar */
+}
+
+.card {
+    background-color: #000000;
+    border-radius: 0.5rem; /* Rounded corners */
+    width: 260px; /* Fixed width for cards */
+    height: 180px; /* Fixed height for cards */
+    display: flex; /* Use flexbox for card content */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    padding: 10px; /* Add padding for better text alignment */
+    text-align: center; /* Center text alignment */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0.9, 0.9);
+}
+
+
+
+.custom-select {
+    border-radius: 0.25rem; /* Rounded corners for dropdown */
+    border: 1px solid #007bff; /* Bootstrap primary border color */
+    background-color: white; /* Set dropdown background to white */
+    margin-bottom: 20px; /* Add margin to bring it down */
+}
+
+.btn-primary {
+    border-radius: 0.25rem; /* Rounded corners for button */
+    background-color: #191919; /* Change button color to red */
+    border: none; /* Bootstrap primary border color */
+}
+
+.btn-primary:hover {
+    background-color: #000000; /* Darker red on hover */
+}
+
+.card-title {
+    color: white; /* Change card title color to white */
+}
+#employeeSelect {
+    background-color: #191919;
+    color: white; /* To ensure the text is visible on the grey background */
+}
+#search-input {
+    color: white;
+}
+/******************************* ICON AND BUTTONS ******************************************/
+.top-right-buttons {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            gap: 10px;
+        }
+/******************************* NAVBAR ******************************************/
+
+.logo {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center vertically */
+    margin-right: 10px; /* Space between logo and heading */
+    height: 65px; /* Set the height of the logo */
+    width: 65px; /* Maintain aspect ratio */
+}
+/******************************* SideBar Button ******************************************/
+#sidebutton {
+    z-index: 1500;
+    cursor: pointer;
+    left: 20px;
+    top: 75px; /* Adjust this value to move the button further down */
+    position: static;
+    transition: transform 0.3s ease; /* Smooth transition for rotation */
+}
+
+#sidebutton.white-icon svg {
+    fill: white; /* Change color of the SVG to white */
+}
+
+#sidebutton.rotate svg {
+    transform: rotate(180deg); /* Rotate the button 180 degrees */
+}
+
+#sidebutton.open svg {
+    transform: rotate(180deg); /* Ensure the button points left initially */
+}
+/******************************* SideBar ******************************************/
+/* Sidebar - Positioned Absolutely */
+.sidebar {
+    background-color: #23486A;
+    padding: 15px;
+    width: 250px; /* Fixed width */
+    height: 100vh; /* Full height */
+    position: fixed; /* Fix it so it doesn’t take space */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure it stays above other content */
+    transition: transform 0.3s ease; /* Smooth transition */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0.9, 0.9);
+}
+
+
+
+.navbar {
+    background-color: #23486A;
+    height: 65px; /* Adjusted height */
+    margin-bottom: 5px; /* Ensure no margin below the navbar */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+.navbar-heading {
+    color: white; /* Set text color to white */
+    display: flex;
+    flex-direction: column; /* Stack the headings vertically */
+    justify-content: center; /* Center vertically */
+    margin-left: 630px;
+    margin-right: auto; /* Push it to the left */
+    padding-left: 15px; /* Add some padding to the left */
+}
+.logo {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center vertically */
+    margin-right: 10px; /* Space between logo and heading */
+}
+
+.navbar-logo {
+    height: 65px; /* Set the height of the logo */
+    width: 65px; /* Maintain aspect ratio */
+}
+
+
+
+/******************************* Main Dashboard Content  ******************************************/
+/* Dashboard Container - Takes full width */
+#dashboard-container {
+
+    width: 90%; /* Use full width */
+    padding: 20px; /* Add padding so content doesn’t touch the edge */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Ensure card layout is grid-based */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 15fr));
+    width: 100%; /* Ensure it doesn't go full width */
+    gap: 10px; /* Add space between the grid items */
+    justify-content: center; /* Center the cards horizontally */
+    margin-left: 15%; /* Adjust this value to move the cards more to the left */
+}
+
+.card-total-working-hours,
+.card-average-working-hours,
+.card-actual-absentees,
+.card-late-marks,
+.card-total-leave-deduction{
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #1B262C;
+    color: #fff;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+    width: 221px; /* Adjust the width as needed */
+    height: 120px; /* Adjust the height as needed */
+    padding: 1px;
+    gap: 150px;
+    margin-right: 30px;
+    transition: transform 0.3s ease-in-out; /* Add transition for smooth effect */
+
+}
+
+.card-total-working-hours:hover,
+.card-average-working-hours:hover,
+.card-actual-absentees:hover,
+.card-late-marks:hover,
+.card-total-leave-deduction:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+
+.card-body h6 {
+    font-size: 1.3em; /* Adjust the heading size */
+}
+
+.card-body p {
+    font-size: 1em; /* Adjust the paragraph size */
+}
+/******************************* Charts Designing  ******************************************/
+.gauge-line-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    padding: 20px;
+    margin-right: 30px; /* Ensure no margin on the right */
+    gap: 40px;
+}
+
+.gauge-holder-container{
+    background-color: #D0DDD0;
+    border-radius: 12px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    height: 370px;
+    transition: transform 0.3s ease-in-out; /* Add transition for smooth effect */
+}
+.gauge-holder-container:hover {
+    transform: scale(1.02); /* Slightly enlarge on hover */
+}
+
+.line-holder-container{
+    background-color: #D0DDD0;
+    border-radius: 12px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    height: 370px;
+    transition: transform 0.3s ease-in-out; /* Add transition for smooth effect */
+}
+.line-holder-container:hover {
+    transform: scale(1.02); /* Slightly enlarge on hover */
+}
+
+
+
+
+.heatmap-holder {
+    margin: 50px auto;  /* Center the element with some margin */
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+.heatmap-holder:hover {
+    transform: scale(1.02); /* Slightly enlarge on hover */
+}
+
+
+.pie-bar-container{
+    display: flex;
+    right: 1200px;
+}
+
+.bar-container{
+    background-color: #D0DDD0;
+    border-radius: 12px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    height: 490px;
+    margin-left: 140px;
+    transition: transform 0.3s ease-in-out; /* Add transition for smooth effect */
+}
+.bar-container:hover{
+    transform: scale(1.01); /* Slightly enlarge on hover */
+}
+
+
+.pie-container{
+    background-color: #D0DDD0;
+    border-radius: 12px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    margin-left: 40px;
+    width: 490px;
+    height: 490px;
+    transition: transform 0.3s ease-in-out; /* Add transition for smooth effect */
+}
+.pie-container:hover {
+    transform: scale(1.02); /* Slightly enlarge on hover */
+}
+
+
+.main-container{
+    background-color: white;
+    border-radius: 12px;
+    margin-top: 40px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    height: 186px;
+    width: 98%;
+    margin-right: -150px;
+    transition: transform 0.3s ease-in-out; /* Add transition for smooth effect */
+}
+.main-container:hover {
+    transform: scale(1.01); /* Slightly enlarge on hover */
+}
+
+.ratings-container {
+    margin-left: 50px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between; /* Space out the items evenly */
+    gap: 300px; /* Optional: adds spacing between the elements */
+}
+
+h4 {
+    font-size: 22px;
+    margin-top: -10px;
+    margin-bottom: 2px;
+    margin-right: 70px;
+    text-align: left;
+    white-space: nowrap; /* Prevent line break */
+    overflow: hidden; /* Hide overflowed text */
+    text-overflow: ellipsis; /* Show ellipsis for long titles */
+}
+
+
+.punctuality-rating {
+    margin-top: 1px;
+    flex: 2; /* This will make each block take up equal space */
+    text-align: centre; /* Center the content */
+}
+
+overtime-to-incomplete-rating {
+    margin-top: -40px;
+    flex: 1; /* This will make each block take up equal space */
+    text-align: centre; /* Center the content */
+}
+
+
+.absentism-rating {
+    margin-top: 1px;
+    flex: 2; /* This will make each block take up equal space */
+    text-align: centre; /* Center the content */
+}

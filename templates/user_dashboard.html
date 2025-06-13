@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user_dashboard.css') }}">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/En_logo/en_half_white.svg') }}" alt="Logo" class="navbar-logo">
+            </div>
+
+            <!-- Heading inside the navbar -->
+            <div class="navbar-heading">
+                <h3 class="mb-0">Welcome to Employee Dashboard</h3>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Top Right Navigation Buttons -->
+    <div class="top-right-buttons">
+        <button class="icon-button" onclick="location.href='{{ url_for('admin') }}'" style="background: none; border: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-list" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+            </svg>
+        </button>
+
+        <button class="icon-button" onclick="location.href='{{ url_for('logout') }}'" style="background: none; border: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-door-open-fill" viewBox="0 0 16 16">
+                <path d="M1.5 15a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2.5A1.5 1.5 0 0 0 11.5 1H11V.5a.5.5 0 0 0-.57-.495l-7 1A.5.5 0 0 0 3 1.5V15zM11 2h.5a.5.5 0 0 1 .5.5V15h-1zm-2.5 8c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448 .5 1-.224 1-.5 1"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Sidebar Button -->
+    <div id="sidebutton" class="position-fixed rotate-icon open white-icon" onclick="toggleSidebar()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
+        </svg>
+    </div>
+
+    <div id="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/En_logo/en_half_white.svg') }}" alt="Company Logo">
+            </div>
+
+            <div class="card-body">
+                <h5 class="card-title">Select Employee</h5>
+                <form id="employeeForm" method="POST" action="{{ url_for('user_dashboard') }}">
+                    <select id="employeeSelect" name="selected_employee" class="form-control mb-3 custom-select">
+                        {% for name in employee_names %}
+                            <option value="{{ name }}" {% if selected_employee == name %}selected{% endif %}>{{ name }}</option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit" id="viewEmployeeButton" class="btn btn-primary btn-block">View Employee Data</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="dashboard-container">
+            <div class="card-container">
+                <div class="test-card-container">
+                    {{ total_work_hour_card | safe }}
+                </div>
+                <div class="test-card-container">
+                    {{ average_work_hour_card | safe }}
+                </div>
+                <div class="test-card-container">
+                    {{ actual_absantee_card | safe }}
+                </div>
+                <div class="test-card-container">
+                    {{ late_mark_card | safe }}
+                </div>
+                <div class="test-card-container">
+                    {{ total_deduction_card | safe }}
+                </div>
+            </div>
+
+            <div class="gauge-line-container">
+
+                <div class = "gauge-holder-container">
+                    <div class = 'gauge-holder'>
+                        {{ target_gauge_html | safe }}
+                    </div>
+                </div>
+
+
+                <div class = line-holder-container>
+                    <div class = "line-holder">
+                        {{ daily_working_trend_line_html | safe }}
+                    </div>
+                </div>
+            </div>
+
+
+        <div class = "heatmap-holder">
+            {{ heatmap_metric_html | safe }}
+        </div>
+
+
+        <div class ="pie-bar-container">
+
+            <div class="bar-container">
+                {{ overtime_barchart_html | safe }}
+            </div>
+
+            <div class="pie-container">
+                {{ status_donutChart_html | safe }}
+            </div>
+
+        </div>
+        <div class = "main-container">
+            <div class = "star-fig">
+                {{ star_fig | safe }}
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+    <script>
+        // Toggle sidebar visibility
+        const sidebar = document.getElementById('sidebar');
+        const sideButton = document.getElementById('sidebutton');
+        const employeeForm = document.getElementById('employeeForm');
+
+        // Initially show the sidebar
+        sidebar.style.transform = 'translateX(0)'; // Show sidebar on-screen
+
+        sideButton.addEventListener('click', function() {
+            if (sidebar.style.transform === 'translateX(-100%)') {
+                sidebar.style.transform = 'translateX(0)'; // Show sidebar
+                sideButton.classList.add('white-icon'); // Change button color to white
+                sideButton.classList.add('rotate'); // Rotate the button
+            } else {
+                sidebar.style.transform = 'translateX(-100%)'; // Hide sidebar
+                sideButton.classList.remove('white-icon'); // Revert button color
+                sideButton.classList.remove('rotate'); // Rotate the button back
+            }
+        });
+
+        // Handle form submission without hiding the sidebar
+        employeeForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            this.submit(); // Submit the form without hiding the sidebar
+        });
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const sidebutton = document.getElementById('sidebutton');
+
+            sidebar.classList.toggle('open');
+            sidebutton.classList.toggle('open');
+            sidebutton.classList.toggle('rotate'); // Toggle the rotation class
+            sidebutton.classList.toggle('white-icon'); // Toggle the color class
+        }
+
+    </script>
+</body>
+</html>

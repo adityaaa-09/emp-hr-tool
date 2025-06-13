@@ -1,0 +1,158 @@
+/* General Reset for Body */
+body {
+    margin: 0; /* Remove default body margin */
+    padding: 0; /* Remove default body padding */
+    height: 100vh;
+    background: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/******************************* TABLE ******************************************/
+
+/* Table Container */
+.table-container {
+    width: 100%; /* Full width */
+    margin-top: 1px; /* Remove all margins */
+    max-height: 90vh; /* Limit max height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: auto; /* Allow horizontal scrolling */
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0; /* Remove padding */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Table */
+.table-container table {
+    width: 98%;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+/* Table Headers & Cells */
+.table-container th{
+    padding: 10px;
+    border: 1.5px solid #9DB2BF;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+}
+
+.table-container td {
+    padding: 10px;
+    border: 1.5px solid #9DB2BF;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+}
+
+/* Sticky Header */
+.table-container thead {
+    position: sticky;
+    top: 0;
+    background: #11468F;
+    z-index: 10;
+}
+
+/* Header Styling */
+.table-container th {
+    background-color: #23486A;
+    color: white;
+    font-weight: bold;
+    cursor: ew-resize; /* Cursor for resizable columns */
+    position: relative;
+}
+
+/* Alternate Row Colors */
+.table-container tr:nth-child(even) {
+    background: #C9D1D3;
+}
+
+.table-container tr:hover {
+    background: #F4D793;
+}
+
+/******************************* ICON AND BUTTONS ******************************************/
+.top-right-buttons {
+    display: flex;
+    margin-right: 20px;/* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+}
+.icon-button {
+    margin-right: 20px; /* Adjust the value as needed for spacing */
+}
+
+.icon-button:last-child {
+    margin-right: 0; /* Remove margin for the last button */
+}
+/******************************* NAVBAR ******************************************/
+.navbar {
+    background-color: #23486A;
+    height: 65px; /* Adjusted height */
+    margin-bottom: 5px; /* Ensure no margin below the navbar */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+.navbar-heading {
+    color: white; /* Set text color to white */
+    display: flex;
+    flex-direction: column; /* Stack the headings vertically */
+    justify-content: center; /* Center vertically */
+    margin-left: 410px;
+    margin-right: auto; /* Push it to the left */
+    padding-left: 15px; /* Add some padding to the left */
+}
+.logo {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center vertically */
+    margin-right: 10px; /* Space between logo and heading */
+}
+
+.navbar-logo {
+    height: 65px; /* Set the height of the logo */
+    width: 65px; /* Maintain aspect ratio */
+}
+/******************************* SUGGESTIONS ******************************************/
+.suggestions {
+    border: 1px solid #ccc;
+    background: white;
+    max-height: 150px;
+    overflow-y: auto;
+    position: absolute;
+    z-index: 1000;
+    width: 200px;
+}
+
+.suggestion-item {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.suggestion-item:hover {
+    background-color: #f0f0f0;
+}
+/******************************* SEARCH FUNCTIONALITIES ******************************************/
+/* Add this to your existing CSS */
+#search-input {
+    transition: height 0.3s ease, opacity 0.3s ease; /* Smooth transition for height and opacity */
+    height: 0; /* Start with height 0 */
+    opacity: 0; /* Start with opacity 0 */
+    overflow: hidden; /* Hide overflow */
+
+
+    padding: 5px; /* Add some padding */
+}
+#search-input.show {
+    height: 40px; /* Set the height when shown */
+    opacity: 1; /* Set opacity to 1 when shown */
+}
+
+
+
+
+
+
