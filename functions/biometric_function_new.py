@@ -732,7 +732,7 @@ def calculate_latemark(employee_dict):
             if in_time and in_time != 'NaT':  # Check if the InTime is valid
                 try:
                     hours, minutes = map(int, in_time.split(':'))
-                    if (hours == 10 and minutes > 0) or (10 < hours < 12) or (hours == 12 and minutes == 0):
+                    if (hours == 10 and minutes > 30) or (hours > 10):
                         late_mark.append(1)  # Mark as late
                         late_count += 1
                     else:
